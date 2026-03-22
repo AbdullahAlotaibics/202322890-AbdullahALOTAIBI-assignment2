@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio — Your Name</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Abdullah Al-Otaibi</h1>
             <nav aria-label="Main navigation">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <button data-section="about" class="nav-btn active">About</button>
+                <button data-section="projects" class="nav-btn">Projects</button>
+                <button data-section="contact" class="nav-btn">Contact</button>
             </nav>
+            <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
         </header>
 
         <main>
@@ -34,15 +36,21 @@
                     <p style="margin:6px 0"><strong>Role:</strong> Frontend Developer</p>
                     <p style="margin:6px 0"><strong>Email:</strong> <a href="mailto:cs.abdullah.alotaibi@gmail.com">cs.abdullah.alotaibi@gmail.com</a></p>
                     <p style="margin:6px 0"><strong>Location:</strong> Dhahran, Saudi Arabia</p>
+                </aside>
+
+                <aside class="card" aria-labelledby="fun-fact-title">
+                    <h3 id="fun-fact-title">Fun Fact</h3>
+                    <p id="fun-fact-text">Loading a fun fact...</p>
+                    <button id="new-fact-btn">Get New Fact</button>
                 </aside>    
             </section>
 
-            <section id="about" class="card" aria-labelledby="about-title">
+            <section id="about" class="card tab-section active" aria-labelledby="about-title">
                 <h2 id="about-title">About</h2>
                 <p>I’m a Computer Science student who enjoys breaking complex problems into clear, logical steps. I’m equally comfortable designing a database schema, debugging a low-level algorithm, or building gameplay systems in Unity. I believe good software isn’t just correct—it’s understandable, maintainable, and purposeful.</p>
             </section>
 
-            <section id="projects" aria-labelledby="projects-title">
+            <section id="projects" class="tab-section" aria-labelledby="projects-title">
                 <h2 id="projects-title" style="margin-top:18px">Projects</h2>
 
                 <div class="projects">
@@ -62,8 +70,9 @@
                 </div>
             </section>
 
-            <h2 id="contact-title" style="margin-top:18px">Contact</h2>
-            <section id="contact" class="card" aria-labelledby="contact-title">
+            <section id="contact" class="card tab-section" aria-labelledby="contact-title">
+                
+                <h2 id="contact-title" style="margin-top:18px">Contact</h2>
                 
                 <p>If you'd like to work together or have a question, send a message.</p>
 
@@ -88,29 +97,4 @@
         </footer>
     </div>
 </body>
- <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const form = document.getElementById('contactForm');
-        const status = document.getElementById('formStatus');
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const name = form.name.value.trim();
-            const email = form.email.value.trim();
-            const message = form.message.value.trim();
-
-            if (!name || !email || !message) {
-                status.textContent = 'Please fill out all fields.';
-                return;
-            }
-
-            // simulate submit
-            status.textContent = 'Sending...';
-            setTimeout(() => {
-                status.textContent = 'Thanks! Your message was sent (simulation).';
-                form.reset();
-            }, 900);
-        });
-    </script>
 </html>
