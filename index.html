@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio — Your Name</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Abdullah Al-Otaibi</h1>
+            <nav aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+
+            <section class="hero" id="home" aria-labelledby="intro-title">
+                <div class="intro card">
+                    <h2 id="intro-title">Hi, I'm Abdullah Al-Otaibi</h2>
+                    <p class="muted" style="color:var(--muted)">Computer Science Student • Game Developer • Frontend Developer </p>
+                    <p>
+                         I build systems that work, games that feel right, and solutions that make complexity simple.
+                    </p>
+                    <a class="cta" href="#projects">View projects</a>
+                </div>
+
+                <aside class="card" aria-labelledby="contact-quick">
+                    <h3 id="contact-quick">Quick info</h3>
+                    <p style="margin:6px 0"><strong>Role:</strong> Frontend Developer</p>
+                    <p style="margin:6px 0"><strong>Email:</strong> <a href="mailto:cs.abdullah.alotaibi@gmail.com">cs.abdullah.alotaibi@gmail.com</a></p>
+                    <p style="margin:6px 0"><strong>Location:</strong> Dhahran, Saudi Arabia</p>
+                </aside>    
+            </section>
+
+            <section id="about" class="card" aria-labelledby="about-title">
+                <h2 id="about-title">About</h2>
+                <p>I’m a Computer Science student who enjoys breaking complex problems into clear, logical steps. I’m equally comfortable designing a database schema, debugging a low-level algorithm, or building gameplay systems in Unity. I believe good software isn’t just correct—it’s understandable, maintainable, and purposeful.</p>
+            </section>
+
+            <section id="projects" aria-labelledby="projects-title">
+                <h2 id="projects-title" style="margin-top:18px">Projects</h2>
+
+                <div class="projects">
+                    <article class="project card" aria-labelledby="p1">
+                        <div>
+                            <h3 id="p1" style="margin:0">ModelWatch</h3>
+                            <p style="margin:6px 0;color:var(--muted)">A system designed to monitor machine-learning model performance and detect data drift before predictions fail in real-world use.</p>
+                        </div>
+                    </article>
+
+                    <article class="project card" aria-labelledby="p2">
+                        <div>
+                            <h3 id="p2" style="margin:0">Supervised ML on Structured Data</h3>
+                            <p style="margin:6px 0;color:var(--muted)">Built machine-learning models using tabular numerical data, applying feature scaling and selection to compare the effectiveness of different supervised algorithms.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <h2 id="contact-title" style="margin-top:18px">Contact</h2>
+            <section id="contact" class="card" aria-labelledby="contact-title">
+                
+                <p>If you'd like to work together or have a question, send a message.</p>
+
+                <form id="contactForm" novalidate>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Send message</button>
+                    <p id="formStatus" style="margin-top:8px;color:var(--muted)"></p>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>© <span id="year"></span> Abdullah Al-Otaibi — <a href="#" style="color:inherit">Privacy</a></p>
+        </footer>
+    </div>
+</body>
+ <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+
+            if (!name || !email || !message) {
+                status.textContent = 'Please fill out all fields.';
+                return;
+            }
+
+            // simulate submit
+            status.textContent = 'Sending...';
+            setTimeout(() => {
+                status.textContent = 'Thanks! Your message was sent (simulation).';
+                form.reset();
+            }, 900);
+        });
+    </script>
+</html>
