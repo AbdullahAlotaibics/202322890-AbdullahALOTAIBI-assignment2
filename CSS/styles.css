@@ -239,6 +239,68 @@ button:active {
 #formStatus {
     animation: slideInLeft 0.3s ease-in-out;
 }
+
+/* Form feedback states */
+#formStatus.loading {
+    color: var(--accent);
+}
+
+#formStatus.success {
+    color: #10b981;
+}
+
+#formStatus.error {
+    color: #ef4444;
+}
+
+.field-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: block;
+    animation: slideInLeft 0.3s ease-in-out;
+}
+
+input.error, textarea.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+}
+
+form.submitting {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Loading, error, and success states for dynamic content */
+.loading-state, .error-state, .empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+}
+
+.loading-state {
+    color: var(--accent);
+}
+
+.error-state {
+    color: #ef4444;
+}
+
+.empty-state {
+    color: var(--muted);
+}
+
+#fun-fact-text.loading {
+    color: var(--accent);
+}
+
+#fun-fact-text.success {
+    color: inherit;
+}
+
+#fun-fact-text.error {
+    color: #ef4444;
+}
 footer{padding:20px 0;color:var(--muted);font-size:0.9rem;text-align:center}
 footer a {
     transition: color 0.3s ease;
